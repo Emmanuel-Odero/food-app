@@ -21,6 +21,9 @@
     float: none;
     clear: both;
 }
+.tbl-30{
+    width: 30%;
+}
 .tbl-full{
     width: 100%;
 }

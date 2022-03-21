@@ -6,7 +6,7 @@
         <h1><strong>Manage Admin</strong></h1>
         <br>
         <!-- Button to add Admin -->
-        <a href="#" class="btn-primary">Add Admin</a>
+        <a href="add-admin.php" class="btn-primary">Add Admin</a>
         <br> <br>
         <table class="tbl-full">
             <tr>
