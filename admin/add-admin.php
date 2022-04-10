@@ -54,10 +54,14 @@ if(isset($_POST['submit'])){
     ";
     //echo $sql; //confirming if our sql querry collects the data we want
     // database connection
-    $conn = mysqli_connect('localhost', 'root', '') or die(mysqli_error());
-    $db_select = mysqli_select_db($conn, 'Food_Order_App') or die(mysqli_error());//selecting Database
-    echo "Success";
+    $port = "localhost";
+    $user="root";
+    $pass= "";
+    $db= "Food_Order_App";
     
-    //$res =mysli_query($comn, $sql) or die(mysqli_error());
+    echo "Success";
+    //execute querry and insert it to database
+    $ref= mysqli_query($conn, $sql) or die(mysqli_error());
+
 }
 ?>
