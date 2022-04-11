@@ -52,16 +52,6 @@ if(isset($_POST['submit'])){
     username = '$username',
     password = '$password'
     ";
-    //echo $sql; //confirming if our sql querry collects the data we want
-    // database connection
-    $port = "localhost";
-    $user="root";
-    $pass= "";
-    $db= "Food_Order_App";
-    
-    echo "Success";
-    //execute querry and insert it to database
-    $ref= mysqli_query($conn, $sql) or die(mysqli_error());
 
 }
 ?>
