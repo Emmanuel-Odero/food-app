@@ -1,0 +1,48 @@
+version: '3.3'
+services:
+  #Database
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    command: '--default-authentication-plugin=mysql_natuve_password'
+    restart: always
+    env_file: .env
+    environment:
+        MYSQL_DATABASE: fast_foods
+    networks:
+      - fast_foods
+    
+  #phpMyadmin
+  phpmyadmin:
+    depends_on:
+      - mysql
+    restart: always
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 9081:80
+    environment:
+      PMA_HOSTS: mysql
+      PMA_USER: fast_foods
+      PMA_PASWORD: fast_foods
+    networks:
+      - fast_foods
+  
+  # fast_foods
+  fast_foods:
+    depends_on:
+      - mysql
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: fast_foods
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - 9080:80
+    networks:
+      - fast_foods
+networks:
+  fast_foods:
+volumes:
+  db_data:
